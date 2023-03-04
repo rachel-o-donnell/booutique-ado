@@ -82,12 +82,21 @@ on all site buttons. Giving our users a consistent user experience. */
 
 /* -------------------------------- Media Queries */
 
+/* The first one will widen the default
+bootstrap container class on extra-large screens just to make better use of the
+available screen real estate for people with extra-large monitors. */
+
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
+
+/* The second one will add 164 pixels of padding to our header container class
+to push the body down to the bottom of the main page header.
+This is the page header block that we added at the top of the index.html page in the home app. */
+
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
@@ -103,3 +112,8 @@ on all site buttons. Giving our users a consistent user experience. */
         padding-top: 164px;
     }
 }
+
+/* The other class in this media query will be for the main site navbar, we add in the coming videos.
+    For both of these classes, I'm using a minimum screen width of 992 pixels.
+    Since the main header will look different on mobile views.
+    So we only want these to af */
