@@ -84,6 +84,11 @@ on all site buttons. Giving our users a consistent user experience. */
     background: #000 !important;
 }
 
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* The first one will widen the default
