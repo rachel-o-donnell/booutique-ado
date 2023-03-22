@@ -10,11 +10,6 @@ body {
     font-family: 'Lato';
 }
 
-/* CSS framework similar to bootstrap called Bulma
-Which will ensure that whenever we use font awesome icons.
-They will always stay perfectly centred and have a consistent size
-unless we manually change it. */
-
 /* from Bulma */
 .icon {
     align-items: center;
@@ -24,23 +19,13 @@ unless we manually change it. */
     width: 1.5rem;
 }
 
-/* The logo font class will be used throughout this site
-to maintain consistency with the uppercase font of the logo
-whenever we want to call attention to something. */
-
 .logo-font {
     text-transform: uppercase;
 }
 
-/* And the main logo link class here
-just makes it so that the logo only takes up as much space as the text requires and no more. */
-
 .main-logo-link {
     width: fit-content;
 }
-
-/* These next several lines are styling which we'll use consistently throughout
-the site for buttons so that they match the theme of the shop now button on the homepage. */
 
 .shop-now-button {
     background: black;
@@ -51,6 +36,13 @@ the site for buttons so that they match the theme of the shop now button on the 
 .btn-black {
     background: black;
     color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    /* use important to override link colors for <a> elements */
+    border: 1px solid black;
 }
 
 .btn-outline-black:hover,
@@ -70,15 +62,6 @@ the site for buttons so that they match the theme of the shop now button on the 
     color: white;
 }
 
-/* And finally I've added a text-black class and a border-black class
-similar to bootstraps colour helper classes like text success text info and so on.
-Bootstrap doesn't actually have a black class as of this recording.
-So I'm creating my own and I've marked them as important.
-Because we will always want elements using these classes to obey them
-These classes will allow us to have both primary and secondary call-to-action styling
-on all site buttons. Giving our users a consistent user experience. */
-
-
 .text-black {
     color: #000 !important;
 }
@@ -89,6 +72,16 @@ on all site buttons. Giving our users a consistent user experience. */
 
 .bg-black {
     background: #000 !important;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
 }
 
 a.category-badge>span.badge:hover {
@@ -110,19 +103,75 @@ a.category-badge>span.badge:hover {
     cursor: pointer;
 }
 
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    /* use important to override link colors for <a> elements */
-    border: 1px solid black;
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
 }
 
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 /* -------------------------------- Media Queries */
-
-/* The first one will widen the default
-bootstrap container class on extra-large screens just to make better use of the
-available screen real estate for people with extra-large monitors. */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -130,11 +179,6 @@ available screen real estate for people with extra-large monitors. */
         max-width: 80%;
     }
 }
-
-/* The second one will add 164 pixels of padding to our header container class
-to push the body down to the bottom of the main page header.
-This is the page header block that we added at the top of the index.html page in the home app. */
-
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
@@ -151,7 +195,13 @@ This is the page header block that we added at the top of the index.html page in
     }
 }
 
-/* The other class in this media query will be for the main site navbar, we add in the coming videos.
-    For both of these classes, I'm using a minimum screen width of 992 pixels.
-    Since the main header will look different on mobile views.
-    So we only want these to af */
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+}
